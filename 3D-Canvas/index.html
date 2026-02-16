@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wizard Stage — Three.js + Mixamo</title>
+  <link rel="stylesheet" href="./src/style.css" />
+
+  <!-- Importmap: permite import * as THREE from "three" -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot"></span>
+      <span>Wizard Stage</span>
+    </div>
+
+    <div class="hint">
+      Arrastra: orbitar · Rueda: zoom · Click en el mago: Wave · Teclas: <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="panel">
+      <h1>Control</h1>
+      <p class="sub">
+        Interfaz web + escena 3D con luces, cámara, movimiento e interacción.
+      </p>
+
+      <div class="controls">
+        <button class="btn" data-anim="idle">Idle</button>
+        <button class="btn" data-anim="wave">Wave</button>
+        <button class="btn" data-anim="dance">Dance</button>
+      </div>
+
+      <div class="controls secondary">
+        <button class="btn ghost" id="toggleAuto">Auto-rotación: ON</button>
+        <button class="btn ghost" id="toggleFog">Niebla: ON</button>
+        <button class="btn ghost" id="resetCam">Reset cámara</button>
+      </div>
+
+      <div class="card">
+        <div class="cardTitle">Estado</div>
+        <div id="status" class="status">Listo</div>
+      </div>
+
+      <div class="card small">
+        <div class="cardTitle">Tips</div>
+        <ul>
+          <li>Click en el personaje → Wave.</li>
+          <li>Wave/Dance vuelven a Idle automáticamente.</li>
+          <li>Si falta un archivo, no revienta: lo verás en “Estado”.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <section class="stage">
+      <canvas id="c"></canvas>
+      <div class="vignette"></div>
+      <div class="grain"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
