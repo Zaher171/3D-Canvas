@@ -116,11 +116,12 @@ const particles = new THREE.Points(particlesGeo, particlesMat);
 scene.add(particles);
 
 // ---------- Assets ----------
+const assetUrl = (name) => new URL(`../assets/${name}`, import.meta.url).href;
 const PATHS = {
-  character: "/assets/character.fbx",
-  idle: "/assets/idle.fbx",
-  wave: "/assets/wave.fbx",
-  dance: "/assets/dance.fbx",
+  character: assetUrl("character.fbx"),
+  idle: assetUrl("idle.fbx"),
+  wave: assetUrl("wave.fbx"),
+  dance: assetUrl("dance.fbx"),
 };
 
 // ---------- Animation ----------
@@ -314,7 +315,7 @@ loader.load(
     });
   },
   undefined,
-  () => setStatus("❌ Error cargando /assets/character.fbx (revisa nombre y ruta)")
+  () => setStatus(`❌ Error cargando ${PATHS.character} (revisa nombre y ruta)`)
 );
 
 // ---------- Resize ----------
